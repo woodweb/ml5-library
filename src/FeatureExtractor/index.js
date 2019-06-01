@@ -8,6 +8,7 @@ General Feature Extractor Manager
 */
 
 import Mobilenet from './Mobilenet';
+import SpeechCommands from './SpeechCommands';
 
 /* eslint max-len: ["error", { "code": 180 }] */
 
@@ -34,7 +35,7 @@ import Mobilenet from './Mobilenet';
 const featureExtractor = (model, optionsOrCallback, cb) => {
   let modelName;
   if (typeof model !== 'string') {
-    throw new Error('Please specify a model to use. E.g: "MobileNet"');
+    throw new Error('Please specify a model to use. E.g: "MobileNet" or "SpeechCommands18w"');
   } else {
     modelName = model.toLowerCase();
   }
@@ -48,8 +49,13 @@ const featureExtractor = (model, optionsOrCallback, cb) => {
     callback = optionsOrCallback;
   }
 
-  if (modelName === 'mobilenet') {
-    return new Mobilenet(options, callback);
+  switch (modelName) {
+    case 'mobilenet':
+      return new Mobilenet(options, callback);
+    case 'speechcommands18w':
+      return new SpeechCommands(callback);
+    default:
+      break;
   }
   throw new Error(`${modelName} is not a valid model.`);
 };
