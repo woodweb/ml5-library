@@ -232,20 +232,19 @@ neuralNetwork.train(?optionsOrCallback, ?optionsOrWhileTraining, ?callback)
   * If a callback function is given as the first parameter to handle the `whileTraining`, then `optionsOrWhileTraining` will be a callback function that is fired after the training as finished.
 * **callback**: Optional. Function. 
   * If an object of options is given as the first parameter and a callback function is given as a second parameter, then this `callback` parameter will be a callback function that is fired after the training as finished.
-  ```js
-  const trainingOptions = {
+    ```js
+    const trainingOptions = {
     batchSize: 32,
     epochs: 12,
-  }
-  function whileTraining(epoch, loss){
+    }
+    function whileTraining(epoch, loss){
       console.log(`epoch: ${epoch}, loss:${loss}`);
-  }
-  function doneTraining(){
+    }
+    function doneTraining(){
       console.log('done!');
-  }
-  neuralNetwork.train(trainingOptions, whileTraining, doneTraining)
-
-  ```
+    }
+    neuralNetwork.train(trainingOptions, whileTraining, doneTraining)
+    ```
 
 📤 **Outputs**
 
