@@ -18,6 +18,7 @@ The original PoseNet model was ported to TensorFlow.js by Dan Oved. For backgrou
 ## Quickstart
 
 ```js
+import * as posenet from '@tensorflow-models/posenet';
 const video = document.getElementById('video');
 
 // Create a new poseNet method
